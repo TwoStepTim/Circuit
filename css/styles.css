@@ -1,0 +1,106 @@
+body {
+    font-family: 'Iceland', sans-serif;
+    background-color: #000000;   
+}
+  
+.cursor {
+    position: absolute;
+    pointer-events: none;
+}
+  
+.rounded {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #4B18A5;
+    border-radius: 30%;
+    z-index: 100;
+    transition: transform 0.5s ease-out; /* Add transition for smooth movement */
+}
+  
+.pointed {
+    width: 7px;
+    height: 7px;
+    background-color: #4B18A5;
+    border-radius: 50%;
+    z-index: 100;
+}
+
+.Overlay {
+    text-align: center;  
+    position: relative;
+    top: 33vh;
+    font-family: 'Iceland', sans-serif;
+
+}
+
+.Overlay h1 {
+    letter-spacing: 10px;
+    font-size: 8vw;
+    background: linear-gradient(#4B18A5, #E8D5B5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: fadeOut 30s ease-out forwards; /* 3-second fade-out animation */
+}
+
+@keyframes fadeOut {
+    from{
+        opacity: 1;
+    }
+    50%{
+       opacity: 50%;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+#mainSection {
+    display: none; /* Initially hide the section */
+    background: transparent;
+    background-image: radial-gradient( #e7cafc 0, #ffffff 50%, #aad6f6 150%);
+}
+
+#mainSection.show {
+    animation: fadeIn .5s ease-in forwards; /* 1-second fade-in animation */
+    display: block; /* Show the section when the animation starts */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.mainSection p{
+    font-family: 'Iceland', sans-serif;
+    text-align: left;  
+    font-weight: 200;
+    font-size: 2rem;
+    position: relative;
+    width: 45vw;
+    top: 16vh;
+    left: 12vw;
+}
+.mainSection h1{
+    font-family: 'Iceland', sans-serif;
+    text-align: left;  
+    font-weight: 500;
+    font-size: 6.5rem;
+    position: relative;
+    width: 45vw;
+    top: 7vh;
+    left: 12vw;
+    animation-duration: 4s;
+}
+.mainSection video{
+    width: 30vw;
+    animation: fadeIn 3s ease-in forwards;
+    height: auto;
+    position: relative;
+    left: 60vw;
+    bottom: 45vh;
+    mix-blend-mode: darken;
+}

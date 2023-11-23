@@ -1,6 +1,8 @@
 body {
     font-family: 'Iceland', sans-serif;
-    background-color: #000000;   
+    background-color: #ffffff;   
+    cursor: url("/img/POINT.png"),auto;
+
 }
   
 .cursor {
@@ -17,20 +19,12 @@ body {
     transition: transform 0.5s ease-out; /* Add transition for smooth movement */
 }
   
-.pointed {
-    width: 7px;
-    height: 7px;
-    background-color: #4B18A5;
-    border-radius: 50%;
-    z-index: 100;
-}
 
 .Overlay {
     text-align: center;  
     position: relative;
     top: 33vh;
     font-family: 'Iceland', sans-serif;
-
 }
 
 .Overlay h1 {
@@ -40,7 +34,7 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: fadeOut 30s ease-out forwards; /* 3-second fade-out animation */
+    animation: fadeOut 3s ease-out forwards; /* 3-second fade-out animation */
 }
 
 @keyframes fadeOut {
@@ -74,17 +68,19 @@ body {
         opacity: 1;
     }
 }
-.mainSection p{
+#SmallHeading{
     font-family: 'Iceland', sans-serif;
     text-align: left;  
     font-weight: 200;
+}
+.home p{
     font-size: 2rem;
     position: relative;
     width: 45vw;
     top: 16vh;
     left: 12vw;
 }
-.mainSection h1{
+.home h1{
     font-family: 'Iceland', sans-serif;
     text-align: left;  
     font-weight: 500;
@@ -95,7 +91,7 @@ body {
     left: 12vw;
     animation-duration: 4s;
 }
-.mainSection video{
+.home video{
     width: 30vw;
     animation: fadeIn 3s ease-in forwards;
     height: auto;

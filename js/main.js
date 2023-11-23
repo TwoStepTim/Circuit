@@ -1,25 +1,29 @@
-const cursorRounded = document.querySelector('.rounded');
-const cursorPointed = document.querySelector('.pointed');
+const roundedCursor = document.querySelector('.rounded');
 
-const moveCursor = (e) => {
-    const mouseY = e.clientY;
-    const mouseX = e.clientX;
+const moveCursor = (event) => {
+    const { clientX, clientY } = event;
 
-    // Update the pointed cursor position directly
-    cursorPointed.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+    // Adjust for scroll position
+    const scrolledY = clientY + window.scrollY;
 
-    // Calculate the centered position for the rounded cursor
-    const roundedX = mouseX - cursorRounded.offsetWidth / 2.5;
-    const roundedY = mouseY - cursorRounded.offsetHeight / 2.5;
+    // Update the rounded cursor position
+    const roundedX = clientX - roundedCursor.offsetWidth / 1.6;
+    const roundedY = scrolledY - roundedCursor.offsetHeight / 1.1;
 
-    // Update the rounded cursor position without delay
-    cursorRounded.style.transform = `translate3d(${roundedX}px, ${roundedY}px, 0)`;
+    // Apply the transition for smooth movement
+    roundedCursor.style.transition = 'transform 0.5s ease-out';
+    roundedCursor.style.transform = `translate3d(${roundedX}px, ${roundedY}px, 0)`;
 };
 
-window.addEventListener('mousemove', moveCursor);
 
+const resetCursor = () => {
+    // Remove the transition when the cursor is not moving
+    roundedCursor.style.transition = 'none';
+};
 
+// Add event listeners
 window.addEventListener('mousemove', moveCursor);
+window.addEventListener('mouseleave', resetCursor);
 
 document.addEventListener('DOMContentLoaded', function () {
     // Check if the page was reloaded
@@ -34,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(function () {
             document.getElementById('overlay').style.display = 'none'; // Hide the overlay
             document.getElementById('mainSection').classList.add('show'); // Add the class to trigger the fade-in animation
+            document.body.style.backgroundImage = 'radial-gradient( #e7cafc 0, #ffffff 50%, #aad6f6 150%)';
         }, 3000); // 3 seconds
 
         // Set a flag in local storage to indicate that the page has been reloaded
